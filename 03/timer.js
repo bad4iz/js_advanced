@@ -1,29 +1,69 @@
 window.onload = function () {
     'use strict';
-    var counter = 0;
-    var time = get('out');
-    var t = '';
+    var timer,
+        counter,
+        time,
+        x,
+        secX,
+        secY,
+        minX,
+        minY;
 
     function get(id) {
         return document.getElementById(id);
     }
 
-    function count1() {
+    time = get('out');
+
+
+    counter = 0;
+    x = 0;
+    secX = 0;
+    secY = 0;
+    minX = 0;
+    minY = 0;
+    time.innerHTML = '' + minX + minY + ':' + secX + secY + ':' + x + counter;
+
+
+    function count() {
         counter += 1;
-        
-        time.innerHTML = counter;
+        if (counter > 9) {
+            counter = 0;
+            x += 1;
+        }
+        if (x > 9) {
+            x = 0;
+            secY += 1;
+        }
+        if (secY > 9) {
+            secY = 0;
+            secX += 1;
+        }
+        if (secX > 6) {
+            secX = 0;
+            minY += 1;
+        }
+        if (minY > 9) {
+            minY = 0;
+            secX += 1;
+        }
+        time.innerHTML = minX + '' + minY + ':' + secX + '' + secY + ':' + x + '' + counter;
     }
 
     get('start').onclick = function () {
-        console.log('start');
-        timer = setInterval(count1, 10);
+        timer = setInterval(count, 10);
     }
+
     get('stop').onclick = function () {
-        console.log('stop');
         clearInterval(timer);
     }
     get('reset').onclick = function () {
-        console.log('reset');
         counter = 0;
+        x = 0;
+        secX = 0;
+        secY = 0;
+        minX = 0;
+        minY = 0;
+        time.innerHTML = minX + '' + minY + ':' + secX + '' + secY + ':' + x + '' + counter;
     }
 };
