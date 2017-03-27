@@ -47,7 +47,7 @@ window.onload = function () {
             minY = 0;
             secX += 1;
         }
-        time.innerHTML = minX + '' + minY + ':' + secX + '' + secY + ':' + x + '' + counter;
+        time.innerHTML = minX + '' + minY + ':' + secX + secY + ':' + x + counter;
     }
 
     get('start').onclick = function () {
