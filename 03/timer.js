@@ -7,7 +7,8 @@ window.onload = function () {
         secX,
         secY,
         minX,
-        minY;
+        minY,
+        val;
 
     function get(id) {
         return document.getElementById(id);
@@ -49,9 +50,10 @@ window.onload = function () {
         }
         time.innerHTML = minX + '' + minY + ':' + secX + secY + ':' + x + counter;
     }
-
+ timer = setInterval(count, 10);
     get('start').onclick = function () {
-        timer = setInterval(count, 10);
+        
+       timer;
     }
 
     get('stop').onclick = function () {
