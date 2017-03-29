@@ -7,8 +7,7 @@ window.onload = function () {
         secX,
         secY,
         minX,
-        minY,
-        val;
+        minY;
 
     function get(id) {
         return document.getElementById(id);
@@ -50,15 +49,14 @@ window.onload = function () {
         }
         time.innerHTML = minX + '' + minY + ':' + secX + secY + ':' + x + counter;
     }
- timer = setInterval(count, 10);
+
     get('start').onclick = function () {
-        
-       timer;
-    }
+        timer = setInterval(count, 10);
+    };
 
     get('stop').onclick = function () {
         clearInterval(timer);
-    }
+    };
     get('reset').onclick = function () {
         counter = 0;
         x = 0;
@@ -67,5 +65,5 @@ window.onload = function () {
         minX = 0;
         minY = 0;
         time.innerHTML = minX + '' + minY + ':' + secX + '' + secY + ':' + x + '' + counter;
-    }
+    };
 };
